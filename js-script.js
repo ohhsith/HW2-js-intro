@@ -95,14 +95,26 @@ let array3 = array1.concat(array2);
 console.log(array3);
 
 console.log('------------- #11a')
-function getSum(limit) {
-    let sumi = 0;
-    for (let i=1; i<=limit; i++) {
-        sumi=sumi+i;
+
+function getSum(limit) { 
+    intLimit = parseFloat(limit);
+    if ((intLimit > 0) && (intLimit ^ 0) === intLimit) {
+        let sumi = 0;
+        for (let i=1; i<=intLimit; i++) {
+            sumi=sumi+i;
+        }
+        return sumi
     }
-    return sumi
+    else {
+        return 'число должно быть целым и больше нуля'
+    }
 }
 console.log(getSum(8));
 
 console.log('------------- #11b')
+let input = document.getElementById('number');
+input.addEventListener('change', showValue);
+function showValue(e) {
+    console.log(getSum(e.target.value));
+}
 
